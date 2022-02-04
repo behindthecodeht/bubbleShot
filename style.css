@@ -28,18 +28,17 @@ body{
 
 .bubble{
     position: absolute;
-    top: 100%;
+    top: 80%;
     border-radius: 100%;
     background-color: aquamarine;
     transform: translate(-50%, -50%);
-    opacity: 0.5;
-    animation: anim forwards;
+    animation: anim var(--animD) forwards;
 }
 
 @keyframes anim {
     to{
-        filter: hue-rotate(750deg);
-        opacity: 1;
-        top: -25px;
+        filter: hue-rotate(720deg);
+        top: var(--top);
+        left: var(--left);
     }
 }
