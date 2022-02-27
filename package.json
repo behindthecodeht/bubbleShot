@@ -1,0 +1,17 @@
+{
+  "name": "bubbleshot",
+  "version": "1.0.0",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "repository": "git@github.com:midsonlajeanty/bubbleShot.git",
+  "author": "Louis Midson LAJEANTY <louismidsonlajeanty@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.3.2",
+    "parcel": "^2.3.2"
+  }
+}
