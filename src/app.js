@@ -1,4 +1,4 @@
-let duration = 6;
+let duration = 10;
 let time = 1000;
 let score = 0;
 let highScore = localStorage.getItem("highScore") || 0;
@@ -17,7 +17,7 @@ const bubbleGenarate = () => {
 
     const size = Math.random() * 50 + 50;
     bubble.style.width = size + "px";
-    bubble.style.height = size + "px";
+    bubble.style.height = size + (size * 0.2) + "px";
 
     bubble.style.left = Math.random() * 100 + "%";
     bubble.style.top = Math.random() * 50 + 50 + "%";
@@ -25,6 +25,7 @@ const bubbleGenarate = () => {
     bubble.style.setProperty("--animD", duration + "s");
     bubble.style.setProperty("--top", size / 2 + "px");
     bubble.style.setProperty("--left", Math.random() * 100 + "%");
+    bubble.style.setProperty("--after", size - 10 + "px");
 
     let bubbleAlive = setTimeout(() => {
         stopRun();
@@ -35,6 +36,7 @@ const bubbleGenarate = () => {
         score++;
         scoreBox.textContent = score;
         e.target.remove();
+        
 
         if (score % 5 === 0 && time > 200) time -= 100;
         if (score % 10 === 0 && duration > 2) duration -= 1;
@@ -61,8 +63,10 @@ const stopRun = () => {
 (() => {
     console.log(alert("Commencer le Jeu"));
     if (playerName == undefined) {
-        playerName = prompt("Entrer Votre Nom :");
-        localStorage.setItem("playerName", playerName);
+        do{
+            playerName = prompt("Entrer Votre Nom :");
+            localStorage.setItem("playerName", playerName); 
+        }while(playerName == null)
     }
     run = setInterval(bubbleGenarate, time);
 })();
